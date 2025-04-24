@@ -1,0 +1,8 @@
+# Total amount collected based on year
+
+SELECT EXTRACT(YEAR FROM payment_date) AS payment_year,
+       SUM(amount) AS total_amount
+FROM payment
+WHERE EXTRACT(YEAR FROM payment_date) IN (2020, 2021, 2022)
+GROUP BY EXTRACT(YEAR FROM payment_date)
+ORDER BY payment_year;

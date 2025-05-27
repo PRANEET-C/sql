@@ -21,6 +21,6 @@ from payment
 
 # Fetch the first 2 employees from each department
 select * from(
-row_number over(partition by dept order by emp_id) as rn
+row_number() over(partition by dept order by emp_id) as rn
 from employee) x
 where x.rn <3

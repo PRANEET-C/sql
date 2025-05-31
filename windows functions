@@ -14,7 +14,7 @@ select *,
 row_number() over() as rn
 from payment
 
-# Row Number column on the table based on department
+# Row Number column on the table based on department. This will add a column with row number fpr each department. If Admin has 3 columns. Then 1,2,3 will be given as row number.
 select *,
 row_number() over(partition by dept) as rn
 from payment

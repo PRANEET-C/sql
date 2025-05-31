@@ -1,1 +1,4 @@
-
+Finding average --> select avg(salary) from employee
+Finding sum --> select sum(salary) from employee
+--Fetch the details of employees who earn more then average
+select * from employee where salary>(select avg(salary) from employee)

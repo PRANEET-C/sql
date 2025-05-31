@@ -1,0 +1,7 @@
+numeric Data Type (also called decimal)
+Purpose: Store exact numbers with user-defined precision and scale.
+Syntax:
+numeric(5, 2)   -- Allows numbers like 123.45 (max 5 digits total, 2 after decimal)
+numeric         -- Arbitrary precision (limited only by system memory)
+
+In PostgreSQL, int8 is an alias for the bigint data type.

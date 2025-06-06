@@ -1,1 +1,12 @@
-
+--to find stores whose total sales (i.e., total revenue) is greater than the average total sales of all stores
+with total_sales as
+	(select store_name, sum(revenue) as tot_sales from sales
+	group by store_name),
+	
+	average_sales as
+	(select avg(tot_sales) as avrs
+	from total_sales)
+	
+select store_name, tot_sales
+from total_sales
+where tot_sales>(select avrs from average_sales)

@@ -1,0 +1,14 @@
+create database testing;
+
+create table test_op
+(customer_id int8 primary key,
+customer_name varchar(50) not null,
+cutomer_address varchar(50) not null
+);
+
+insert into table test_op
+(customer_id,customer_name, csutomer_address)
+values
+(1,'Rohit','West Bengal'),
+(2,'Samir','UttarPradesh');
+

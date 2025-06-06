@@ -10,3 +10,17 @@ with total_sales as
 select store_name, tot_sales
 from total_sales
 where tot_sales>(select avrs from average_sales)
+
+--same thing using cross join
+with total_sales as
+	(select store_name, sum(revenue) as tot_sales from sales
+	group by store_name),
+	
+	average_sales as
+	(select avg(tot_sales) as avrs
+	from total_sales)
+	
+select s.store_name, s.tot_sales
+from total_sales s
+cross join average_sales a
+where s.tot_sales>a.avrs

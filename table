@@ -12,3 +12,22 @@ values
 (1,'Rohit','West Bengal'),
 (2,'Samir','UttarPradesh');
 
+--how to use foreign key and refernces
+
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name TEXT
+);
+
+CREATE TABLE stores (
+    store_id INT PRIMARY KEY,
+    store_name TEXT
+);
+
+CREATE TABLE sales (
+    product_id INT,
+    store_id INT,
+    revenue NUMERIC(10, 2),
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id)
+);

@@ -1,0 +1,13 @@
+You want to find students whose best friend's salary is higher than theirs, and output the student's name, ordered by their best friend's salary.
+Tables Involved:
+Students(ID, Name)
+Friends(ID, Friend_ID) → each student has one best friend
+Packages(ID, Salary) → salary of each student (based on ID)
+
+SELECT s.Name
+FROM Students s
+JOIN Friends f ON s.ID = f.ID
+JOIN Packages sp ON s.ID = sp.ID          -- sp: student's package
+JOIN Packages fp ON f.Friend_ID = fp.ID   -- fp: friend's package
+WHERE fp.Salary > sp.Salary
+ORDER BY fp.Salary;

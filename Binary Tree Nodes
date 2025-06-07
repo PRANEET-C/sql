@@ -1,1 +1,7 @@
-
+select N,
+case when N not in (select P from BST where P is not null) then 'Leaf'
+when P is NULL then 'Root'
+else 'Inner'
+end as Nodetype
+from BST
+order by N

@@ -1,3 +1,32 @@
+The table is:
+
+BST(N, P)
+N = node value
+P = parent node value (can be NULL for the root)
+Each row tells you:
+"Node N has a parent P"
+🧠 Concept: Node Types
+You want to classify each node as:
+
+Type	Condition
+Root	If the node has no parent → P IS NULL
+Leaf	If the node is never a parent → doesn't appear in P
+Inner	If the node has a parent and is also a parent
+
+✅ SQL Logic Breakdown
+Step 1: Identify if a node is a Root
+Check: P IS NULL
+
+i.e., this node has no parent.
+
+Step 2: Identify if a node is a Leaf
+It is never a parent of any other node.
+
+So: node N does not appear in the P column.
+
+Step 3: Otherwise, it’s an Inner node
+It has a parent (P IS NOT NULL) and it appears in the P column (i.e., it is a parent of someone).
+------------------------------
 select N,
 case when N not in (select P from BST where P is not null) then 'Leaf'
 when P is NULL then 'Root'
